@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>HTML5 Canvas - rect()</h1>
+
+<canvas id="myCanvas" width="300" height="150" style="border:1px solid black">
+Sorry, your browser does not support canvas.
+</canvas>
+
+<script>
+// Get the canvas element by its id
+var canvas = document.getElementById('myCanvas');
+
+// Get the 2D drawing context
+var ctx = canvas.getContext('2d');
+
+// Array of colors
+var colors = [
+    'rgba(255, 0, 0, 0.5)',    // Red
+    'rgba(0, 255, 0, 0.5)',    // Green
+    'rgba(0, 0, 255, 0.5)',    // Blue
+    'rgba(255, 255, 0, 0.5)',  // Yellow
+    'rgba(0, 255, 255, 0.5)',  // Cyan
+    'rgba(255, 0, 255, 0.5)',  // Magenta
+    'rgba(192, 192, 192, 0.5)',// Silver
+    'rgba(128, 0, 0, 0.5)',    // Maroon
+    'rgba(128, 128, 0, 0.5)',  // Olive
+    'rgba(0, 128, 128, 0.5)'   // Teal
+];
+
+// Set the rectangle properties
+var rectWidth = 100;
+var rectHeight = 50;
+var spacing = 10;
+var startX = 10;
+var startY = 10;
+
+// Draw the rectangles and text
+colors.forEach((color, index) => {
+    var x = startX + (index % 5) * (rectWidth + spacing);
+    var y = startY + Math.floor(index / 5) * (rectHeight + spacing);
+
+    // Draw the text behind the rectangle
+    ctx.font = '20px Arial';
+    ctx.fillStyle = 'black';
+    ctx.fillText('Text ' + (index + 1), x + 10, y + 30);
+
+    // Draw the transparent rectangle
+    ctx.fillStyle = color;
+    ctx.fillRect(x, y, rectWidth, rectHeight);
+});
+
+</script> 
+
+</body>
+</html>
