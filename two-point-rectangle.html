@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>HTML5 Canvas - rect()</h1>
+
+<canvas id="myCanvas" width="300" height="150" style="border:1px solid black">
+Sorry, your browser does not support canvas.
+</canvas>
+
+<script>
+// Get the canvas element by its id
+var canvas = document.getElementById('myCanvas');
+
+// Get the 2D drawing context
+var ctx = canvas.getContext('2d');
+
+// Define the top-left and bottom-right points
+var topLeft = { x: 110, y: 100 };
+var bottomRight = { x: 400, y: 300 };
+
+// Calculate the width and height of the rectangle
+var width = bottomRight.x - topLeft.x;
+var height = bottomRight.y - topLeft.y;
+
+// Set the fill color with transparency
+var fillColor = 'rgba(0, 0, 255, 0.5)'; // Blue with 50% transparency
+
+// Draw the rectangle overlay
+ctx.fillStyle = fillColor;
+ctx.fillRect(topLeft.x, topLeft.y, width, height);
+
+// Draw some text behind the overlay
+ctx.font = '20px Arial';
+ctx.fillStyle = 'black';
+ctx.fillText('This is some text behind the overlay', topLeft.x + 10, topLeft.y + 30);
+
+</script> 
+
+</body>
+</html>
